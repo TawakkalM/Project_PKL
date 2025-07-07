@@ -1,0 +1,30 @@
+# ============================
+# Umum
+# ============================
+*.log
+*.env
+*.env.*
+.DS_Store
+Thumbs.db
+
+# ============================
+# Node.js
+# ============================
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# ============================
+# Tailwind / Build Output
+# ============================
+styles/output.css
+dist/
+build/
+
+# ============================
+# OS dan Editor Files
+# ============================
+*.swp
+*~
+.vscode/
+.idea/
