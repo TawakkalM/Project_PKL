@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pola Pikir - BBGTK Provinsi Sumatera Utara</title>
+
+    <!-- Icon Website -->
+    <link rel="shortcut icon" href="./img/ikon-tutwurihan.png" type="image/x-icon">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./styles/output.css">
+
+    <style>
+        /* Custom styles untuk font dan animasi */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar-shadow {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 57, 146, 0.4);
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white top-0 sticky z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-10 lg:h-14">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                   <div class="w-54 overflow-hidden">
+                        <img src="./img/logo-bbgtk.png" alt="Logo BBGTK" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-[#1E0E62] hover:text-blue-500 font-medium transition-colors duration-200">Home</a>
+                    <a href="#" class="text-[#1E0E62] hover:text-blue-600 font-medium transition-colors duration-200">Pelajari</a>
+                    <a href="#mengapa-penting" class="text-[#1E0E62] hover:text-blue-600 font-medium transition-colors duration-200">Mengapa Penting</a>
+                    <a href="#mulai-pemetaan" class="text-[#1E0E62] hover:text-blue-600 font-medium transition-colors duration-200">Mulai Pemetaan</a>
+                </div>
+                
+                <!-- Login Button & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <button class="bg-[#003692] px-4 py-1 rounded-2xl hover:bg-[#5375c6] transition-colors duration-200 btn-hover">
+                        <a href="./login.html" class="text-white font-normal">Masuk</a>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-16 left-0 w-full h-full bg-white z-40">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Home</a>
+                <a href="#" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Pelajari</a>
+                <a href="#mengapa-penting" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Mengapa Penting</a>
+                <a href="#mulai-pemetaan" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Mulai Pemetaan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="home" class="bg-white min-h-screen flex items-center">
+        <div class="max-w-7xl mx-24 px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Content -->
+                <div class="fade-in">
+                    <h1 class="text-1xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                        Temukan profil pola pikir Anda
+                    </h1>
+                    
+                    <p class="text-lg sm:text-[15px] text-gray-600 mb-8 leading-relaxed">
+                        Mulai kerjakan soal-soal yang dapat memetakan profil pola pikir Anda. 
+                        Hanya dengan menjawab beberapa pertanyaan, Anda dapat menemukan 
+                        pola pikir Anda.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="h-11 bg-[#003692] rounded-lg hover:bg-[#5375c6] transition-all duration-200 flex justify-center items-center"> 
+                            <a href="#mulai-pemetaan" class="text-white px-6"> Mulai Pemetaan </a> 
+                        </button>
+                        
+                        <button class="h-11 flex items-center justify-center px-8 rounded-lg text-[#003692] hover:bg-blue-50 transition-colors duration-200 border border-blue-200">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <a href="#" class="text-lg font-semibold"> Pelajari </a>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Image/Illustration -->
+                <div class="fade-in">
+                    <div class="flex w-full h-75">
+                        <img src="./img/hero-img.svg" alt="hero-svg" class="w-full h-auto object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Section: Mengapa Pemetaan Profil Pola Pikir Penting -->
+    <section id="mengapa-penting" class="fade-in bg-[#f5f5f5] min-h-screen">
+        <div class="max-w-7xl mx-24 px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <!-- Header Section -->
+            <div class="text-center mb-16">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1E0E62] mb-6">
+                    Mengapa Penting?
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Dengan pemetaan profil pola pikir kita bisa:
+                </p>
+            </div>
+
+            <!-- Benefits Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Benefit 1 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <h3 class="text-lg text-center font-bold text-[#1E0E62] mb-2">Meningkatkan Self-Awareness</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">
+                            Membantu Anda memahami cara berpikir, mengambil keputusan, dan merespons 
+                            situasi dalam kehidupan sehari-hari.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <h3 class="text-lg text-center font-bold text-[#1E0E62] mb-2">Optimalisasi Kinerja</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">
+                            Mengidentifikasi kekuatan dan area pengembangan untuk meningkatkan 
+                            produktivitas dan efektivitas kerja.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col items-center justify-between">
+                        <h3 class="text-lg font-bold text-[#1E0E62]">Kolaborasi</h3>
+                        <h3 class="text-lg font-bold text-[#1E0E62] mb-2">Tim</h3>
+                        <p class="text-gray-600 text-center leading-relaxed">
+                            Memahami keragaman pola pikir dalam tim untuk menciptakan sinergi 
+                            dan komunikasi yang lebih efektif.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg text-center font-bold text-[#1E0E62] mb-2">Pengembangan Karir</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Memberikan wawasan untuk menentukan jalur karir yang sesuai dengan 
+                        gaya berpikir dan preferensi Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mulai-pemetaan" class="bg-[#FEB902] h-auto">
+        <div class="max-w-7xl mx-24 px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Content -->
+                <div class="fade-in">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+                        Sudah Siap Mengungkap Potensi Pola Pikir Anda?
+                    </h3>
+                    <p class="text-base text-gray-600 mb-2 max-w-2xl">
+                        Jika Anda sudah membaca dan memahami manfaat dari pemetaan ini serta panduan pengerjaannya, silahkan klik tombol <b>Mulai Kerjakan</b> berikut.
+                    </p>
+        
+                    <div>
+                        <button class="h-12 bg-[#003692] rounded-lg hover:bg-[#5375c6] transition-all duration-200 flex justify-center items-center btn-hover px-8"> 
+                            <a href="#" class="text-white font-semibold"> Mulai Kerjakan </a> 
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image/Illustration -->
+                <div class="fade-in flex justify-center">
+                    <h1 class="text-5xl text-center">INI GAMBAR</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#003692] text-white mt-20 fade-in">
+        <div class="max-w-7xl mx-24 px-4 sm:px-6 lg:px-8 py-6 lg:py-14">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Statistik Section -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-6">Statistik</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-200">Online Visitors:</span>
+                            <span class="font-semibold">2</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-200">Today's Views:</span>
+                            <span class="font-semibold">175</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-200">Today's Visitors:</span>
+                            <span class="font-semibold">39</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-200">Total Views:</span>
+                            <span class="font-semibold">836,159</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-200">Total Visitors:</span>
+                            <span class="font-semibold">189,445</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-200">Total Page Views:</span>
+                            <span class="font-semibold">7,278</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Link Terkait Section -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-6">Link Terkait</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors duration-300 flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Kementerian Pendidikan dan Kebudayaan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors duration-300 flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Direktorat Jenderal Guru dan Tenaga Kependidikan (Ditjen GTK)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors duration-300 flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>MenPANRB</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sistem Aplikasi Section -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-6">Sistem Aplikasi</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors duration-300 flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Naskan Dinas Elektronik</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors duration-300 flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Informasi Manajemen Diklat</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors duration-300 flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Informasi Kepegawaian</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors duration-300 flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>LMS BBGTK Sumut</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Organization Info -->
+            <div class="text-center border-t border-blue-400 pt-8 mb-6">
+                <h2 class="text-2xl font-bold mb-2">BBGTK Provinsi Sumatera Utara</h2>
+                <p class="text-gray-200 mb-1">Jalan Kenanga Raya No. 64 Tanjungsari</p>
+                <p class="text-gray-200 mb-1">Medan 20132</p>
+                <p class="text-gray-200">Telp. 061-8213254</p>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center border-t border-blue-400 pt-6">
+                <p class="text-gray-300 text-sm">
+                    Copyright © 2025 BBGTK Provinsi Sumatera Utara. All Right Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && isMenuOpen) {
+                isMenuOpen = false;
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu after clicking
+                    if (isMenuOpen) {
+                        isMenuOpen = false;
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.card-hover').forEach(card => {
+            observer.observe(card);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects for links
+            const links = document.querySelectorAll('footer a');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Simulate real-time statistics update (optional)
+            function updateStats() {
+                const onlineVisitors = document.querySelector('footer span:contains("2")');
+                // You can add real-time updates here if needed
+            }
+        });
+    </script>
+</body>
+</html>
