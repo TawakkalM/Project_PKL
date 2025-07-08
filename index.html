@@ -101,22 +101,22 @@
             <div class="flex justify-between items-center h-10 lg:h-14">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                   <div class="w-36 sm:w-40 md:w-44 lg:w-48 overflow-hidden">
+                   <div class="w-36 sm:w-38 md:w-40 lg:w-48 overflow-hidden">
                         <img src="./img/logo-bbgtk.png" alt="Logo BBGTK" class="w-full h-auto sm: object-cover">
                     </div>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-[#1E0E62] hover:text-blue-500 font-medium transition-colors duration-200">Home</a>
-                    <a href="#" class="text-[#1E0E62] hover:text-blue-600 font-medium transition-colors duration-200">Pelajari</a>
-                    <a href="#mengapa-penting" class="text-[#1E0E62] hover:text-blue-600 font-medium transition-colors duration-200">Mengapa Penting</a>
-                    <a href="#mulai-pemetaan" class="text-[#1E0E62] hover:text-blue-600 font-medium transition-colors duration-200">Mulai Pemetaan</a>
+                    <a href="#home" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Home</a>
+                    <a href="#pelajari" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Pelajari</a>
+                    <a href="#mengapa-penting" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Mengapa Penting</a>
+                    <a href="#mulai-pemetaan" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Mulai Pemetaan</a>
                 </div>
                 
                 <!-- Login Button & Mobile Menu Button -->
                 <div class="flex items-center space-x-4">
-                    <button class="hidden md:block bg-[#003692] px-3 py-2 sm:px-4 sm:py-2 rounded-2xl hover:bg-[#5375c6] transition-colors duration-200 btn-hover">
+                    <button class="hidden lg:w-25 md:block md:h-7 md:py-0 bg-[#003692] px-3 py-2 sm:px-4 sm:py-2 rounded-2xl hover:bg-[#5375c6] transition-colors duration-200 btn-hover">
                         <a href="./login.html" class="text-white text-sm:text-base font-normal">Masuk</a>
                     </button>
                     
@@ -134,7 +134,7 @@
         <div id="mobile-menu" class="mobile-menu md:hidden fixed top-10 left-0 w-full h-screen bg-white z-40">
             <div class="px-4 py-6 space-y-4">
                 <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Home</a>
-                <a href="#" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Pelajari</a>
+                <a href="#pelajari" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Pelajari</a>
                 <a href="#mengapa-penting" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Mengapa Penting</a>
                 <a href="#mulai-pemetaan" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Mulai Pemetaan</a>
 
@@ -145,7 +145,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <main id="home" class="bg-white min-h-full flex items-center">
+    <main id="home" class="bg-white min-h-screen flex items-center">
         <div class="max-w-7xl mobile-container mx-10 py-8 lg:mx-24 lg:px-8 lg:py-20 md:mx-18 sm:mx-12">
             <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
                 <!-- Content -->
@@ -161,15 +161,15 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center lg:items-start lg:justify-start">
-                        <button class="w-full sm:w-auto h-12 bg-[#003692] rounded-lg hover:bg-[#5375c6] transition-all duration-200 flex justify-center items-center btn-hover"> 
-                            <a href="#mulai-pemetaan" class="text-white px-6 font-medium"> Mulai Pemetaan </a> 
+                        <button class="w-40 sm:w-auto h-12 bg-[#003692] rounded-lg hover:bg-[#5375c6] transition-all duration-200 flex justify-center items-center btn-hover"> 
+                            <a href="#mulai-pemetaan" class="text-sm text-white px-6 font-medium"> Mulai Pemetaan </a> 
                         </button>
                         
-                        <button class="w-full sm:w-auto h-12 flex items-center justify-center px-6 rounded-lg text-[#003692] hover:bg-blue-50 transition-colors duration-200 border border-blue-200">
+                        <button class="w-40 sm:w-auto h-12 flex items-center justify-center px-6 rounded-lg text-[#003692] hover:bg-blue-50 transition-colors duration-200 border border-blue-200">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
-                            <a href="#" class="text-lg font-medium"> Pelajari </a>
+                            <a href="#pelajari" class="text-sm lg:text-lg font-medium"> Pelajari </a>
                         </button>
                     </div>
                 </div>
@@ -183,6 +183,58 @@
             </div>
         </div>
     </main>
+
+    <!-- Pelajari Section -->
+    <section id="pelajari" class="fade-in min-h-screen flex items-center justify-center" style="background-color: #72BEE3;">
+        <div class="max-w-7xl mobile-container mx-10 py-8 lg:mx-24 lg:px-8 lg:py-20 md:mx-18 sm:mx-12">
+            <!-- Header Section -->
+            <div class="text-center mb-8">
+            <!-- Illustration -->
+            <div class="fade-in flex justify-center mb-4">
+                <img src="./img/pelajari-img.svg" alt="pelajari-svg"
+                class="w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-56 lg:h-56 object-contain" />
+            </div>
+
+            <!-- Title -->
+            <h2 class="fade-in text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2">
+                Kenali cara berpikirmu!
+            </h2>
+
+            <!-- Description -->
+            <p class="fade-in text-sm sm:text-base md:text-lg text-black text-opacity-90 max-w-3xl mx-auto leading-relaxed">
+                Pemetaan Profil Pola Pikir adalah alat berbasis sains yang membantu Anda memahami cara berpikir, menyelesaikan
+                masalah, dan merespons tantangan.
+            </p>
+            </div>
+
+            <!-- Cards Section -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <!-- Card 1 -->
+            <div class="fade-in bg-white rounded-2xl py-4 px-4 lg:p-6 text-center card-hover">
+                <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">Proses Informasi</h3>
+                <p class="text-sm text-black leading-relaxed">
+                Bagaimana otakmu menyerap dan mengolah informasi baru.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="fade-in bg-white rounded-2xl py-4 px-4 lg:p-6 text-center card-hover">
+                <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">Pemecahan Masalah</h3>
+                <p class="text-sm text-black leading-relaxed">
+                Cara unikmu menemukan solusi dari berbagai situasi.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="fade-in bg-white rounded-2xl py-4 px-4 lg:p-6 text-center card-hover sm:col-span-2 lg:col-span-1">
+                <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">Respons Tantangan</h3>
+                <p class="text-sm text-black leading-relaxed">
+                Reaksi dan adaptasimu dalam menghadapi kesulitan.
+                </p>
+            </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Section: Mengapa Pemetaan Profil Pola Pikir Penting -->
     <section id="mengapa-penting" class="fade-in bg-[#f5f5f5] min-h-full">
@@ -264,6 +316,7 @@
         </div>
     </section>
 
+    <!-- Section: Mulai Pemetaan -->
     <section id="mulai-pemetaan" class="bg-[#FEB902] min-h-full">
         <div class="max-w-7xl mobile-container mx-10 py-8 lg:mx-24 lg:px-8 lg:py-15 md:mx-18 sm:mx-12">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -490,6 +543,34 @@
                 const onlineVisitors = document.querySelector('footer span:contains("2")');
                 // You can add real-time updates here if needed
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('main, section'); // Target semua section
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            const options = {
+                threshold: 0.5, // Ketika 50% section terlihat
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href').substring(1) === id) {
+                                link.classList.add('text-[#FEB902]', 'font-semibold');
+                            } else {
+                                link.classList.remove('text-[#FEB902]', 'font-semibold');
+                            }
+                        });
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
         });
     </script>
 </body>
