@@ -242,191 +242,91 @@
     </div>
 
     <script>
-        // Quiz data
+        // Quiz data (lebih efisien)
         const quizData = [
-    {
-        question: "Kemampuan Anda adalah sesuatu yang sangat mendasar yang tidak banyak dapat Anda ubah lagi.",
-        options: [
-            "Sangat Setuju",
-            "Setuju", 
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Tidak peduli seberapapun tingkat kemampuan Anda saat ini, Anda bisa mengubahnya walaupun sedikit.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju", 
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Anda akan selalu dapat mengubah kemampuan Anda.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Anda adalah seseorang yang unik, tidak banyak yang dapat dilakukan untuk mengubahnya.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Anda akan selalu dapat mengubah diri Anda sendiri.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Kemampuan dalam bidang seni dan musik dapat dipelajari oleh siapapun.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Hanya sedikit orang yang benar-benar mahir dalam olahraga, Anda harus membawa bakat itu sejak lahir.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Matematika lebih mudah dipelajari oleh pria atau seseorang yang berada dalam lingkungan yang menyukainya.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Makin keras Anda mengerjakan sesuatu makin mahir Anda dalam hal ini.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Tidak peduli tipe apapun Anda saat ini, Anda akan selalu dapat mengubahnya.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Mencoba sesuatu yang baru akan sangat menyulitkan Anda sehingga Anda ingin menghindarinya.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Sebagian orang baik dan pintar, sebagian lagi tidak. Tidak banyak yang dapat berubah.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Saya sangat menghargai kritik dan saran dari siapapun juga terkait dengan kinerja saya saat ini.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Saya kurang senang bila ada kritik dan saran dari orang lain.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Semua orang yang tanpa cacat-otak atau cacat-lahir memiliki kemampuan yang sama dalam belajar.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Anda bisa mempelajari sesuatu yang baru, tapi Anda tidak bisa mengubah kemampuan Anda.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Anda dapat melakukan sesuatu secara berbeda, tapi sebenarnya Anda tetap tidak dapat mengubah kemampuan Anda.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Semua orang pada dasarnya baik, tapi kadang-kadang membuat keputusan yang salah.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Alasan terpenting mengapa Anda melakukan pekerjaan Anda adalah keinginan untuk mempelajari sesuatu yang baru.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    },
-    {
-        question: "Orang yang benar-benar cerdas, tidak perlu bekerja keras.",
-        options: [
-            "Sangat Setuju",
-            "Setuju",
-            "Tidak Setuju",
-            "Sangat Tidak Setuju"
-        ]
-    }
-];
+            {
+                question: "Kemampuan Anda adalah sesuatu yang sangat mendasar yang tidak banyak dapat Anda ubah lagi.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Tidak peduli seberapapun tingkat kemampuan Anda saat ini, Anda bisa mengubahnya walaupun sedikit.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Anda akan selalu dapat mengubah kemampuan Anda.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Anda adalah seseorang yang unik, tidak banyak yang dapat dilakukan untuk mengubahnya.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Anda akan selalu dapat mengubah diri Anda sendiri.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Kemampuan dalam bidang seni dan musik dapat dipelajari oleh siapapun.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Hanya sedikit orang yang benar-benar mahir dalam olahraga, Anda harus membawa bakat itu sejak lahir.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Matematika lebih mudah dipelajari oleh pria atau seseorang yang berada dalam lingkungan yang menyukainya.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Makin keras Anda mengerjakan sesuatu makin mahir Anda dalam hal ini.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Tidak peduli tipe apapun Anda saat ini, Anda akan selalu dapat mengubahnya.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Mencoba sesuatu yang baru akan sangat menyulitkan Anda sehingga Anda ingin menghindarinya.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Sebagian orang baik dan pintar, sebagian lagi tidak. Tidak banyak yang dapat berubah.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Saya sangat menghargai kritik dan saran dari siapapun juga terkait dengan kinerja saya saat ini.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Saya kurang senang bila ada kritik dan saran dari orang lain.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Semua orang yang tanpa cacat-otak atau cacat-lahir memiliki kemampuan yang sama dalam belajar.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Anda bisa mempelajari sesuatu yang baru, tapi Anda tidak bisa mengubah kemampuan Anda.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Anda dapat melakukan sesuatu secara berbeda, tapi sebenarnya Anda tetap tidak dapat mengubah kemampuan Anda.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Semua orang pada dasarnya baik, tapi kadang-kadang membuat keputusan yang salah.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Alasan terpenting mengapa Anda melakukan pekerjaan Anda adalah keinginan untuk mempelajari sesuatu yang baru.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            },
+            {
+                question: "Orang yang benar-benar cerdas, tidak perlu bekerja keras.",
+                options: ["Sangat Setuju", "Setuju", "Tidak Setuju", "Sangat Tidak Setuju"]
+            }
+        ];
 
-        let currentQuestionIndex = 0; // Starting at question 1 (index 0)
+        let currentQuestionIndex = 0; 
         let answers = {};
         let timeRemaining = 29 * 60 + 59; // 29:59 in seconds
         let currentPageGroup = 0; // 0 = 1-5, 1 = 6-10, 2 = 11-15, 3 = 16-20
