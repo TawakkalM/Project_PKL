@@ -26,9 +26,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-bbgtk-blue rounded-lg flex items-center justify-center mr-2 sm:mr-3">
-                            <span class="text-white font-bold text-xs sm:text-sm">BBGTK</span>
-                        </div>
+                        <img src="./img/logo-bbgtk.png" alt="BBGTK Logo" class="h-10 sm:h-12 w-auto mr-2 sm:mr-3">
                         <div class="hidden sm:block">
                             <h1 class="text-lg font-semibold text-gray-900">BBGTK</h1>
                             <p class="text-sm text-gray-600">Sumatera Utara</p>
@@ -36,22 +34,8 @@
                     </div>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-md text-gray-700 hover:text-bbgtk-blue">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-
-                <!-- Navigation -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#" class="text-gray-700 hover:text-bbgtk-blue px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="#" class="text-gray-700 hover:text-bbgtk-blue px-3 py-2 text-sm font-medium">Panduan</a>
-                    <a href="#" class="text-gray-700 hover:text-bbgtk-blue px-3 py-2 text-sm font-medium">Daftar Paket Soal</a>
-                </nav>
-
                 <!-- User Actions -->
-                <div class="hidden md:flex items-center space-x-4">
+                <div class="flex items-center space-x-4">
                     <button class="p-2 rounded-full border-2 border-bbgtk-blue text-bbgtk-blue hover:bg-bbgtk-blue hover:text-white transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -64,112 +48,202 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Mobile Navigation Menu -->
-            <div id="mobileMenu" class="hidden md:hidden pb-4">
-                <div class="flex flex-col space-y-2">
-                    <a href="#" class="text-gray-700 hover:text-bbgtk-blue px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="#" class="text-gray-700 hover:text-bbgtk-blue px-3 py-2 text-sm font-medium">Panduan</a>
-                    <a href="#" class="text-gray-700 hover:text-bbgtk-blue px-3 py-2 text-sm font-medium">Daftar Paket Soal</a>
-                </div>
-            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-        <!-- Quiz Header -->
-        <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-8">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div class="flex items-center">
-                    <button id="backBtn" class="mr-2 sm:mr-4 p-2 hover:bg-gray-100 rounded-full transition-colors">
-                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
-                    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 leading-tight">Kuesioner Pola Pikir untuk Kinerja dan Pembelajaran</h2>
-                </div>
-                <div class="flex items-center bg-bbgtk-blue text-white px-3 sm:px-4 py-2 rounded-full self-start sm:self-auto">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span id="timer" class="font-mono text-sm sm:text-base">29:59</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question Card -->
-        <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 lg:p-8 mb-4 sm:mb-8">
-            <div class="mb-6">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4">
-                    <h3 class="text-lg font-medium text-bbgtk-blue">Question <span id="currentQuestion">3</span>/20</h3>
-                    <button id="clearBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-full text-sm font-medium transition-colors self-start sm:self-auto">
-                        Hapus Jawaban
-                    </button>
-                </div>
-                <p class="text-lg sm:text-xl text-gray-900 mb-6 sm:mb-8 leading-relaxed" id="questionText">
-                    For Fiscal year 2021, what was your total GhG Carbon Emission for all scopes?
-                </p>
-            </div>
-
-            <!-- Answer Options -->
-            <div class="space-y-3 sm:space-y-4" id="answerOptions">
-                <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
-                    <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
-                    <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 1 - Determine environmental impact levels.</span>
-                </label>
-                <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
-                    <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
-                    <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 2 - Reduce carbon footprints.</span>
-                </label>
-                <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
-                    <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
-                    <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 3 - Enhance environmental impacts on a larger scale.</span>
-                </label>
-                <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
-                    <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
-                    <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 4 - I do not know the answer to this question.</span>
-                </label>
-            </div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <!-- Previous Button -->
-                <button id="prevBtn" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 sm:px-8 py-2 rounded-full font-medium transition-colors order-2 sm:order-1">
-                    Sebelumnya
-                </button>
-
-                <!-- Page Numbers with Arrow Navigation -->
-                <div class="flex items-center justify-center gap-2 sm:gap-3 order-1 sm:order-2">
-                    <!-- Left Arrow -->
-                    <button id="leftArrow" class="p-1 sm:p-2 rounded-full hover:bg-gray-200 transition-colors">
-                        <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- Page Numbers (5 at a time) -->
-                    <div class="flex gap-1 sm:gap-2" id="pagination">
-                        <!-- Will be populated by JavaScript -->
+    <!-- Quiz Content -->
+    <div id="quizContent">
+        <!-- Main Content -->
+        <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+            <!-- Quiz Header -->
+            <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div class="flex items-center">
+                        <button id="backBtn" class="mr-2 sm:mr-4 p-2 hover:bg-gray-100 rounded-full transition-colors">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <h2 class="text-lg sm:text-xl font-semibold text-gray-900 leading-tight">Kuesioner Pola Pikir untuk Kinerja dan Pembelajaran</h2>
                     </div>
-                    
-                    <!-- Right Arrow -->
-                    <button id="rightArrow" class="p-1 sm:p-2 rounded-full hover:bg-gray-200 transition-colors">
-                        <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    <div class="flex items-center bg-bbgtk-blue text-white px-3 sm:px-4 py-2 rounded-full self-start sm:self-auto">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                    </button>
+                        <span id="timer" class="font-mono text-sm sm:text-base">29:59</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 lg:p-8 mb-4 sm:mb-8">
+                <div class="mb-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4">
+                        <h3 class="text-lg font-medium text-bbgtk-blue">Question <span id="currentQuestion">3</span>/20</h3>
+                        <button id="clearBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-full text-sm font-medium transition-colors self-start sm:self-auto">
+                            Hapus Jawaban
+                        </button>
+                    </div>
+                    <p class="text-lg sm:text-xl text-gray-900 mb-6 sm:mb-8 leading-relaxed" id="questionText">
+                        For Fiscal year 2021, what was your total GhG Carbon Emission for all scopes?
+                    </p>
                 </div>
 
-                <!-- Next Button -->
-                <button id="nextBtn" class="bg-bbgtk-blue hover:bg-blue-700 text-white px-6 sm:px-8 py-2 rounded-full font-medium transition-colors order-3">
-                    Lanjut
-                </button>
+                <!-- Answer Options -->
+                <div class="space-y-3 sm:space-y-4" id="answerOptions">
+                    <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
+                        <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 1 - Determine environmental impact levels.</span>
+                    </label>
+                    <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
+                        <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 2 - Reduce carbon footprints.</span>
+                    </label>
+                    <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
+                        <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 3 - Enhance environmental impacts on a larger scale.</span>
+                    </label>
+                    <label class="flex items-start space-x-3 p-3 sm:p-4 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                        <input type="checkbox" class="mt-1 h-4 w-4 text-bbgtk-blue border-gray-300 rounded focus:ring-bbgtk-blue flex-shrink-0">
+                        <span class="text-gray-700 text-sm sm:text-base leading-relaxed">Scope 4 - I do not know the answer to this question.</span>
+                    </label>
+                </div>
             </div>
-        </div>
-    </main>
+
+            <!-- Navigation -->
+            <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <!-- Previous Button -->
+                    <button id="prevBtn" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 sm:px-8 py-2 rounded-full font-medium transition-colors order-2 sm:order-1">
+                        Sebelumnya
+                    </button>
+
+                    <!-- Page Numbers with Arrow Navigation -->
+                    <div class="flex items-center justify-center gap-2 sm:gap-3 order-1 sm:order-2">
+                        <!-- Left Arrow -->
+                        <button id="leftArrow" class="p-1 sm:p-2 rounded-full hover:bg-gray-200 transition-colors">
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        
+                        <!-- Page Numbers (5 at a time) -->
+                        <div class="flex gap-1 sm:gap-2" id="pagination">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                        
+                        <!-- Right Arrow -->
+                        <button id="rightArrow" class="p-1 sm:p-2 rounded-full hover:bg-gray-200 transition-colors">
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Next Button -->
+                    <button id="nextBtn" class="bg-bbgtk-blue hover:bg-blue-700 text-white px-6 sm:px-8 py-2 rounded-full font-medium transition-colors order-3">
+                        Lanjut
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Results Page -->
+    <div id="resultsPage" class="hidden">
+        <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+            <!-- Results Header -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                <div class="text-center">
+                    <div class="mb-4">
+                        <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Kuesioner Selesai!</h1>
+                    <p class="text-gray-600">Terima kasih telah mengikuti Kuesioner Pola Pikir untuk Kinerja dan Pembelajaran</p>
+                </div>
+            </div>
+
+            <!-- Results Card -->
+            <div class="bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-8">
+                <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-6 text-center">Hasil Kuesioner Anda</h2>
+                
+                <!-- Score Display -->
+                <div class="bg-gradient-to-r from-bbgtk-blue to-blue-600 rounded-lg p-6 mb-6 text-white text-center">
+                    <h3 class="text-lg font-medium mb-2">Skor Total</h3>
+                    <div class="text-4xl sm:text-5xl font-bold mb-2" id="finalScore">45</div>
+                    <div class="text-sm opacity-90">dari 60 poin maksimal</div>
+                </div>
+
+                <!-- Profile Result -->
+                <div class="border-l-4 border-bbgtk-blue bg-blue-50 p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" id="profileTitle">
+                        Pola Pikir Berkembang (Growth Mindset)
+                    </h3>
+                    <div class="text-sm text-gray-600 mb-2">
+                        Kode Profil: <span class="font-mono font-semibold" id="profileCode">GG</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed" id="profileDescription">
+                        Anda memiliki pola pikir berkembang yang kuat dan percaya kemampuan dapat ditingkatkan.
+                    </p>
+                </div>
+
+                <!-- Score Breakdown -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Soal Terjawab</h4>
+                        <div class="text-2xl font-bold text-green-600" id="answeredCount">20</div>
+                        <div class="text-sm text-gray-600">dari 20 soal</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Waktu Tersisa</h4>
+                        <div class="text-2xl font-bold text-blue-600" id="timeRemaining">15:30</div>
+                        <div class="text-sm text-gray-600">menit</div>
+                    </div>
+                </div>
+
+                <!-- Score Range Info -->
+                <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                    <h4 class="font-medium text-gray-900 mb-3">Rentang Skor Profil Pola Pikir</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">FF - Fixed Mindset</span>
+                            <span class="text-gray-600">0 - 20 poin</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">FG - Fixed dengan Growth</span>
+                            <span class="text-gray-600">21 - 33 poin</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">GF - Growth dengan Fixed</span>
+                            <span class="text-gray-600">34 - 44 poin</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">GG - Growth Mindset</span>
+                            <span class="text-gray-600">45 - 60 poin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button id="printBtn" class="bg-bbgtk-blue hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                        </svg>
+                        Cetak Hasil
+                    </button>
+                    <button id="restartBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                        Mulai Ulang
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script>
         // Quiz data
@@ -360,6 +434,7 @@
         let answers = {};
         let timeRemaining = 29 * 60 + 59; // 29:59 in seconds
         let currentPageGroup = 0; // 0 = 1-5, 1 = 6-10, 2 = 11-15, 3 = 16-20
+        let timerInterval;
 
         // Timer functionality
         function updateTimer() {
@@ -371,7 +446,8 @@
             if (timeRemaining > 0) {
                 timeRemaining--;
             } else {
-                alert('Waktu habis!');
+                clearInterval(timerInterval);
+                showResults();
             }
         }
 
@@ -484,10 +560,90 @@
             }
         }
 
-        // Toggle mobile menu
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
+        // Calculate score and show results
+        function calculateScore() {
+            let totalScore = 0;
+            for (let i = 0; i < 20; i++) {
+                if (answers[i] !== undefined) {
+                    totalScore += answers[i]; // 0=Sangat Setuju, 1=Setuju, 2=Tidak Setuju, 3=Sangat Tidak Setuju
+                }
+            }
+            return totalScore;
+        }
+
+        function getMindsetProfile(score) {
+            if (score >= 0 && score <= 20) {
+                return {
+                    code: "FF",
+                    name: "Pola Pikir Tetap (Fixed Mindset)",
+                    description: "Anda cenderung percaya bahwa kemampuan adalah tetap dan tidak dapat diubah."
+                };
+            } else if (score >= 21 && score <= 33) {
+                return {
+                    code: "FG", 
+                    name: "Pola Pikir Tetap dengan sedikit Pola Pikir Berkembang",
+                    description: "Anda memiliki kecenderungan pola pikir tetap namun mulai terbuka pada perkembangan."
+                };
+            } else if (score >= 34 && score <= 44) {
+                return {
+                    code: "GF",
+                    name: "Pola Pikir Berkembang dengan sedikit Pola Pikir Tetap", 
+                    description: "Anda cenderung memiliki pola pikir berkembang namun masih ada sedikit pola pikir tetap."
+                };
+            } else if (score >= 45 && score <= 60) {
+                return {
+                    code: "GG",
+                    name: "Pola Pikir Berkembang (Growth Mindset)",
+                    description: "Anda memiliki pola pikir berkembang yang kuat dan percaya kemampuan dapat ditingkatkan."
+                };
+            }
+        }
+
+        function showResults() {
+            clearInterval(timerInterval);
+            
+            const score = calculateScore();
+            const profile = getMindsetProfile(score);
+            const answeredCount = Object.keys(answers).length;
+            const remainingMinutes = Math.floor(timeRemaining / 60);
+            const remainingSeconds = timeRemaining % 60;
+            
+            // Update results page content
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('profileTitle').textContent = profile.name;
+            document.getElementById('profileCode').textContent = profile.code;
+            document.getElementById('profileDescription').textContent = profile.description;
+            document.getElementById('answeredCount').textContent = answeredCount;
+            document.getElementById('timeRemaining').textContent = 
+                `${remainingMinutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+            
+            // Hide quiz content and show results
+            document.getElementById('quizContent').classList.add('hidden');
+            document.getElementById('resultsPage').classList.remove('hidden');
+        }
+
+        function restartQuiz() {
+            // Reset all variables
+            currentQuestionIndex = 0;
+            answers = {};
+            timeRemaining = 29 * 60 + 59;
+            currentPageGroup = 0;
+            
+            // Show quiz content and hide results
+            document.getElementById('quizContent').classList.remove('hidden');
+            document.getElementById('resultsPage').classList.add('hidden');
+            
+            // Restart timer
+            timerInterval = setInterval(updateTimer, 1000);
+            
+            // Update display
+            updateCurrentPageGroup();
+            updateQuestion();
+            updatePagination();
+        }
+
+        function printResults() {
+            window.print();
         }
 
         // Navigation event listeners
@@ -528,7 +684,8 @@
 
         document.getElementById('leftArrow').addEventListener('click', navigateLeft);
         document.getElementById('rightArrow').addEventListener('click', navigateRight);
-        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('printBtn').addEventListener('click', printResults);
+        document.getElementById('restartBtn').addEventListener('click', restartQuiz);
 
         // Save answers when radio buttons change
         document.addEventListener('change', (e) => {
@@ -538,64 +695,11 @@
             }
         });
 
-        function calculateScore() {
-            let totalScore = 0;
-            for (let i = 0; i < 20; i++) {
-                if (answers[i] !== undefined) {
-                    totalScore += answers[i]; // 0=Sangat Setuju, 1=Setuju, 2=Tidak Setuju, 3=Sangat Tidak Setuju
-                }
-            }
-            return totalScore;
-        }
-
-        function getMindsetProfile(score) {
-            if (score >= 0 && score <= 20) {
-                return {
-                    code: "FF",
-                    name: "Pola Pikir Tetap (Fixed Mindset)",
-                    description: "Anda cenderung percaya bahwa kemampuan adalah tetap dan tidak dapat diubah."
-                };
-            } else if (score >= 21 && score <= 33) {
-                return {
-                    code: "FG", 
-                    name: "Pola Pikir Tetap dengan sedikit Pola Pikir Berkembang",
-                    description: "Anda memiliki kecenderungan pola pikir tetap namun mulai terbuka pada perkembangan."
-                };
-            } else if (score >= 34 && score <= 44) {
-                return {
-                    code: "GF",
-                    name: "Pola Pikir Berkembang dengan sedikit Pola Pikir Tetap", 
-                    description: "Anda cenderung memiliki pola pikir berkembang namun masih ada sedikit pola pikir tetap."
-                };
-            } else if (score >= 45 && score <= 60) {
-                return {
-                    code: "GG",
-                    name: "Pola Pikir Berkembang (Growth Mindset)",
-                    description: "Anda memiliki pola pikir berkembang yang kuat dan percaya kemampuan dapat ditingkatkan."
-                };
-            }
-        }
-
-        function showResults() {
-            const score = calculateScore();
-            const profile = getMindsetProfile(score);
-            
-            alert(`Hasil Kuesioner Anda:
-            
-Skor Total: ${score}/60
-Profil: ${profile.name} (${profile.code})
-
-${profile.description}
-
-Terima kasih telah mengikuti kuesioner!`);
-        }
-
         // Initialize
-        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
         updateCurrentPageGroup();
         updateQuestion();
         updatePagination();
-        setInterval(updateTimer, 1000);
     </script>
 </body>
 </html>
