@@ -27,10 +27,6 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
                         <img src="./img/logo-bbgtk.png" alt="BBGTK Logo" class="h-10 sm:h-12 w-auto mr-2 sm:mr-3">
-                        <div class="hidden sm:block">
-                            <h1 class="text-lg font-semibold text-gray-900">BBGTK</h1>
-                            <p class="text-sm text-gray-600">Sumatera Utara</p>
-                        </div>
                     </div>
                 </div>
 
@@ -115,7 +111,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <!-- Previous Button -->
                     <button id="prevBtn" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 sm:px-8 py-2 rounded-full font-medium transition-colors order-2 sm:order-1">
-                        Sebelumnya
+                        Kembali
                     </button>
 
                     <!-- Page Numbers with Arrow Navigation -->
@@ -430,7 +426,7 @@
     }
 ];
 
-        let currentQuestionIndex = 2; // Starting at question 3 (index 2)
+        let currentQuestionIndex = 0; // Starting at question 1 (index 0)
         let answers = {};
         let timeRemaining = 29 * 60 + 59; // 29:59 in seconds
         let currentPageGroup = 0; // 0 = 1-5, 1 = 6-10, 2 = 11-15, 3 = 16-20
