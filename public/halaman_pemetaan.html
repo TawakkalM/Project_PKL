@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pemetaan - BBGTK Provinsi Sumatera Utara</title>
+
+    <!-- Ikon website -->
+    <link rel="shortcut icon" href="./img/ikon-tutwurihan.png" type="image/x-icon">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Font utama */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Efek fade in untuk animasi */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Animasi kartu yang diperbaiki */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card-hover:hover::before {
+            opacity: 1;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.010);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-hover:hover .card-content {
+            transform: translateY(-2px);
+        }
+
+        .card-content {
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Tombol kuning yang diperbaiki */
+        .yellow-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .yellow-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .yellow-btn:hover::before {
+            left: 100%;
+        }
+
+        .yellow-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+        }
+
+        .yellow-btn:active {
+            transform: translateY(0) scale(1.02);
+        }
+
+        /* Efek ikon bounce */
+        .icon-bounce {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card-hover:hover .icon-bounce {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Container video dengan rasio 16:9 */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Menu mobile */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Desain responsif */
+        @media (max-width: 768px) {
+            .mobile-hero-text {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .card-hover:hover {
+                transform: translateY(-8px) scale(1.01);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="./img/logo-bbgtk.png" alt="Logo BBGTK" class="h-10">
+                </div>
+                
+                <!-- Info pengguna desktop -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full flex items-end justify-center border-2 border-[#003692] bg-white">
+                            <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 15">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <span id="user-name" class="text-sm text-[#003692] font-medium">Memuat...</span>
+                    </div>
+                    <span class="h-6 border-l border-gray-400"></span>
+                    <button onclick="logout()" class="text-sm text-[#003692] hover:text-[#5375c6] font-medium">
+                        Keluar
+                    </button>
+                    <a href="/" class="text-sm text-[#003692] hover:text-[#5375c6] font-medium">
+                        Beranda
+                    </a>
+                </div>
+
+                <!-- Tombol menu mobile -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-blue-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigasi mobile -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-16 left-0 w-full h-screen bg-white z-40">
+            <div class="px-4 py-6 space-y-4">
+                <!-- Info pengguna mobile -->
+                <div class="flex items-center space-x-2 py-2 border-b border-gray-200">
+                    <div class="w-6 h-6 rounded-full flex items-end justify-center border-2 border-[#003692] bg-white">
+                        <svg class="w-5 h-5 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 15">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <span id="user-name-mobile" class="text-[#003692] font-medium">Memuat...</span>
+                </div>
+
+                <!-- Item menu -->
+                <a href="/" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">
+                    Beranda
+                </a>
+                
+                <button onclick="logout()" class="block w-full text-left text-red-600 hover:text-red-700 font-medium py-2">
+                    Keluar
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten utama -->
+    <main class="bg-white max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 fade-in">
+        <!-- Bagian header -->
+        <div class="text-center mb-12 fade-in">
+            <h1 class="text-2xl mobile-hero-text sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-6 fade-in">
+                Sudah siap mengungkap potensi<br class="hidden sm:block">pola pikir Anda?
+            </h1>
+            <p class="text-base sm:text-lg lg:text-xl text-gray-600 mb-16 leading-relaxed max-w-4xl mx-auto fade-in">
+                Jika Anda sudah siap untuk mengungkap potensi pola pikir Anda, silahkan tonton dan 
+                pahami panduan pengerjaan di bawah ini terlebih dahulu.
+            </p>
+        </div>
+
+        <!-- Bagian video -->
+        <div class="bg-[#fbfbfb] rounded-2xl shadow-lg p-6 md:p-8 mb-12 fade-in">
+            <h2 class="text-2xl font-bold text-[#1E0E62] mb-6 text-center">
+                📹 Video Panduan Pengerjaan
+            </h2>
+            
+            <div class="video-container mb-6">
+                <!-- Placeholder untuk video - ganti dengan embed video yang sebenarnya -->
+                <div class="absolute inset-0 bg-gray-200 rounded-lg flex items-center justify-center">
+                    <div class="text-center">
+                        <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M9 10V9a2 2 0 012-2h2a2 2 0 012 2v1M9 10v5a2 2 0 002 2h2a2 2 0 002-2v-5"></path>
+                        </svg>
+                        <p class="text-gray-500">Video Panduan Pengerjaan Soal</p>
+                        <p class="text-sm text-gray-400 mt-2">Durasi: 10 menit</p>
+                    </div>
+                </div>
+                <!-- Hapus komentar dan ganti dengan URL video yang sebenarnya
+                <iframe 
+                    src="https://www.youtube.com/embed/VIDEO_ID" 
+                    title="Video Panduan Pengerjaan"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                -->
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-[#003692] p-4 rounded-r-lg">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg class="h-5 w-5 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-[#003692]">
+                            <strong>Penting:</strong> Pastikan Anda menonton video panduan hingga selesai sebelum memulai pengerjaan soal untuk mendapatkan hasil yang optimal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bagian daftar paket soal -->
+        <div class="fade-in">
+            <h2 class="text-center text-2xl sm:text-3xl lg:text-4xl font-bold text-[#003692] mb-10 lg:mb-16 fade-in">
+                📋 Daftar Paket Soal
+            </h2>
+
+            <div class="max-w-lg mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 card-hover fade-in">
+                    <!-- Konten kartu -->
+                    <div class="card-content">
+                        
+                        <!-- Tag kategori -->
+                        <div class="mb-6">
+                            <span class="inline-block px-4 py-2 bg-blue-100 text-[#003692] text-sm font-semibold rounded-full transition-all duration-300 hover:bg-blue-200">
+                                Kinerja
+                            </span>
+                        </div>
+
+                        <!-- Judul kartu -->
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 leading-tight">
+                            Kuesioner Pola Pikir untuk Kinerja dan Pembelajaran
+                        </h3>
+
+                        <!-- Deskripsi kartu -->
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            Mengukur bagaimana Anda memandang kemampuan dan 
+                            potensi pengembangan diri dalam konteks pembelajaran 
+                            profesional.
+                        </p>
+
+                        <!-- Detail kartu -->
+                        <div class="space-y-4 mb-8">
+
+                            <!-- Durasi -->
+                            <div class="flex items-center text-gray-700 group">
+                                <div class="w-5 h-5 mr-4 text-[#003692] icon-bounce">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="font-medium group-hover:text-[#003692] transition-colors">
+                                    30 Menit
+                                </span>
+                            </div>
+
+                            <!-- Jumlah pertanyaan -->
+                            <div class="flex items-center text-gray-700 group">
+                                <div class="w-5 h-5 mr-4 text-[#003692] icon-bounce">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                    </svg>
+                                </div>
+                                <span class="font-medium group-hover:text-[#003692] transition-colors">
+                                    20 Pertanyaan
+                                </span>
+                            </div>
+
+                            <!-- Level -->
+                            <div class="flex items-center text-gray-700 group">
+                                <div class="w-5 h-5 mr-4 text-[#003692] icon-bounce">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                </div>
+                                <span class="font-medium group-hover:text-[#003692] transition-colors">
+                                    Semua Level
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <!-- Tombol mulai -->
+                        <div class="flex justify-end">
+                            <button onclick="mulaiSoal('Kuesioner Potensi Pola Pikir')" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-3 rounded-xl transition-all duration-200 yellow-btn">
+                                Mulai Kerjakan
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bagian tips -->
+        <div class="mt-12 bg-gradient-to-r from-[#003692] to-[#5375c6] rounded-2xl p-8 text-white fade-in">
+            <h3 class="text-2xl font-bold mb-6 text-center">💡 Tips Pengerjaan</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold">1</span>
+                        </div>
+                        <p>Pastikan koneksi internet stabil selama pengerjaan</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold">2</span>
+                        </div>
+                        <p>Jawab semua pertanyaan dengan jujur sesuai kondisi Anda</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold">3</span>
+                        </div>
+                        <p>Tidak ada jawaban benar atau salah, jawab sesuai intuisi</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold">4</span>
+                        </div>
+                        <p>Kerjakan dalam suasana tenang dan fokus</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold">5</span>
+                        </div>
+                        <p>Perhatikan batas waktu yang telah ditentukan</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-sm font-bold">6</span>
+                        </div>
+                        <p>Hasil akan langsung tersedia setelah selesai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#003692] text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+            <!-- Konten utama footer -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Bagian statistik -->
+                <div class="text-center md:text-left fade-in">
+                    <h3 class="text-xl font-bold mb-6">Statistik</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Pengunjung Online:</span>
+                            <span class="font-semibold">2</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Tampilan Hari Ini:</span>
+                            <span class="font-semibold">175</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Pengunjung Hari Ini:</span>
+                            <span class="font-semibold">39</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Total Tampilan:</span>
+                            <span class="font-semibold">836,159</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Total Pengunjung:</span>
+                            <span class="font-semibold">189,445</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Total Halaman Dilihat:</span>
+                            <span class="font-semibold">7,278</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian link terkait -->
+                <div class="text-center md:text-left fade-in">
+                    <h3 class="text-xl font-bold mb-6">Link Terkait</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Kementerian Pendidikan dan Kebudayaan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Direktorat Jenderal Guru dan Tenaga Kependidikan (Ditjen GTK)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>MenPANRB</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bagian sistem aplikasi -->
+                <div class="text-center md:text-left fade-in">
+                    <h3 class="text-xl font-bold mb-6">Sistem Aplikasi</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Naskan Dinas Elektronik</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Informasi Manajemen Diklat</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Informasi Kepegawaian</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>LMS BBGTK Sumut</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Info organisasi -->
+            <div class="text-center border-t border-blue-400 pt-8 mb-8 fade-in">
+                <h2 class="text-2xl font-bold mb-4">BBGTK Provinsi Sumatera Utara</h2>
+                <div class="space-y-1 text-gray-200">
+                    <p>Jalan Kenanga Raya No. 64 Tanjungsari</p>
+                    <p>Medan 20132</p>
+                    <p>Telp. 061-8213254</p>
+                </div>
+            </div>
+
+            <!-- Hak cipta -->
+            <div class="text-center border-t border-blue-400 pt-6 fade-in">
+                <p class="text-gray-300 text-sm">
+                    Copyright © 2025 BBGTK Provinsi Sumatera Utara. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/halaman_pemetaan.js"></script>
+</body>
+</html>

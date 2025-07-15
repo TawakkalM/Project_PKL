@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pola Pikir - BBGTK Provinsi Sumatera Utara</title>
+    
+    <!-- Ikon website -->
+    <link rel="shortcut icon" href="./img/ikon-tutwurihan.png" type="image/x-icon">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Pengaturan font dan animasi khusus */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Efek bayangan pada navbar */
+        .navbar-shadow {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Efek hover untuk tombol */
+        .btn-hover:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 57, 146, 0.4);
+        }
+        
+        /* Efek fade in untuk animasi */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Animasi menu mobile */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Efek hover untuk kartu */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Background gradient */
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        /* Penyesuaian khusus untuk mobile */
+        @media (max-width: 768px) {
+            .mobile-container {
+                max-width: 100%;
+                padding-left: 0.625rem;
+                padding-right: 0.625rem;
+            }
+            
+            .mobile-hero-text {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+            
+            .mobile-section-padding {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .mobile-card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .mobile-footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigasi utama -->
+    <nav class="bg-white top-0 sticky z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-10 lg:h-14">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                   <div class="w-36 sm:w-38 md:w-40 lg:w-48 overflow-hidden">
+                        <img src="./img/logo-bbgtk.png" alt="Logo BBGTK" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                
+                <!-- Navigasi desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Home</a>
+                    <a href="#pelajari" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Pelajari</a>
+                    <a href="#mengapa-penting" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Mengapa Penting</a>
+                    <a href="#mulai-pemetaan" class="text-[#1E0E62] hover:text-[#FEB902] font-medium transition-colors duration-200">Mulai Pemetaan</a>
+                </div>
+                
+                <!-- Tombol login dan menu mobile -->
+                <div class="flex items-center space-x-4">
+                    <!-- Bagian autentikasi -->
+                    <div id="auth-section">
+                        <!-- Akan diisi oleh JavaScript -->
+                    </div>
+                    
+                    <!-- Tombol menu mobile -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-blue-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigasi mobile -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-10 left-0 w-full h-screen bg-white z-40">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Home</a>
+                <a href="#pelajari" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Pelajari</a>
+                <a href="#mengapa-penting" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Mengapa Penting</a>
+                <a href="#mulai-pemetaan" class="block text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-200">Mulai Pemetaan</a>
+
+                <!-- Bagian autentikasi mobile -->
+                <div id="mobile-auth-section">
+                    <!-- Akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian hero -->
+    <main id="home" class="bg-white min-h-screen flex items-center">
+        <div class="max-w-7xl mobile-container mx-10 py-8 lg:mx-24 lg:px-8 lg:py-20 md:mx-18 sm:mx-12">
+            <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                <!-- Konten utama -->
+                <div class="fade-in order-2 lg:order-1">
+                    <h1 class="text-2xl mobile-hero-text sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6 text-center lg:text-left">
+                        Temukan profil pola pikir Anda
+                    </h1>
+                    
+                    <p class="text-sm sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed text-center lg:text-left">
+                        Mulai kerjakan soal-soal yang dapat memetakan profil pola pikir Anda. 
+                        Hanya dengan menjawab beberapa pertanyaan, Anda dapat menemukan 
+                        pola pikir Anda.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center lg:items-start lg:justify-start">
+                        <button class="w-40 sm:w-auto h-12 bg-[#003692] rounded-lg hover:bg-[#5375c6] transition-all duration-200 flex justify-center items-center btn-hover"> 
+                            <a href="#mulai-pemetaan" class="text-sm text-white px-6 font-medium">Mulai Pemetaan</a> 
+                        </button>
+                        
+                        <button class="w-40 sm:w-auto h-12 flex items-center justify-center px-6 rounded-lg text-[#003692] hover:bg-blue-50 transition-colors duration-200 border border-blue-200">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <a href="#pelajari" class="text-sm lg:text-lg font-medium">Pelajari</a>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Gambar ilustrasi -->
+                <div class="fade-in order-1 lg:order-2">
+                    <div class="flex w-full h-64 sm:h-80 lg:h-96">
+                        <img src="./img/hero-img.svg" alt="Ilustrasi Hero" class="w-full h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bagian pelajari -->
+    <section id="pelajari" class="min-h-screen flex items-center justify-center" style="background-color: #72BEE3;">
+        <div class="fade-in max-w-7xl mobile-container mx-10 py-8 lg:mx-24 lg:px-8 lg:py-20 md:mx-18 sm:mx-12">
+            <!-- Header bagian -->
+            <div class="text-center mb-8">
+                <!-- Ilustrasi -->
+                <div class="flex justify-center mb-4">
+                    <img src="./img/pelajari-img.svg" alt="Ilustrasi Pelajari"
+                    class="w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-56 lg:h-56 object-contain" />
+                </div>
+
+                <!-- Judul -->
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2">
+                    Kenali cara berpikirmu!
+                </h2>
+
+                <!-- Deskripsi -->
+                <p class="text-sm sm:text-base md:text-lg text-black text-opacity-90 max-w-3xl mx-auto leading-relaxed">
+                    Pemetaan Profil Pola Pikir adalah alat berbasis sains yang membantu Anda memahami cara berpikir, menyelesaikan
+                    masalah, dan merespons tantangan.
+                </p>
+            </div>
+
+            <!-- Bagian kartu -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                <!-- Kartu 1 -->
+                <div class="card-hover bg-white rounded-2xl py-4 px-4 lg:p-6 text-center">
+                    <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">Proses Informasi</h3>
+                    <p class="text-sm text-black leading-relaxed">
+                        Bagaimana otakmu menyerap dan mengolah informasi baru.
+                    </p>
+                </div>
+
+                <!-- Kartu 2 -->
+                <div class="card-hover bg-white rounded-2xl py-4 px-4 lg:p-6 text-center">
+                    <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">Pemecahan Masalah</h3>
+                    <p class="text-sm text-black leading-relaxed">
+                        Cara unikmu menemukan solusi dari berbagai situasi.
+                    </p>
+                </div>
+
+                <!-- Kartu 3 -->
+                <div class="card-hover bg-white rounded-2xl py-4 px-4 lg:p-6 text-center sm:col-span-2 lg:col-span-1">
+                    <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">Respons Tantangan</h3>
+                    <p class="text-sm text-black leading-relaxed">
+                        Reaksi dan adaptasimu dalam menghadapi kesulitan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian mengapa penting -->
+    <section id="mengapa-penting" class="fade-in bg-[#f5f5f5] min-h-screen">
+        <div class="max-w-7xl mobile-container mx-10 py-8 lg:mx-24 lg:px-8 lg:py-20 md:mx-18 sm:mx-12">
+            <!-- Header bagian -->
+            <div class="fade-in text-center mb-4 lg:mb-16 md:mb-12 sm:mb-8">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1E0E62] mb-1 lg:mb-6 md:mb-4 sm-mb-2">
+                    Mengapa Penting?
+                </h2>
+                <p class="text-sm lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Dengan pemetaan profil pola pikir kita bisa:
+                </p>
+            </div>
+
+            <!-- Grid manfaat -->
+            <div class="fade-in grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-4">
+                <!-- Manfaat 1 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl py-4 px-4 lg:p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2 lg:mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <h3 class="text-base lg:text-lg text-center font-bold text-[#1E0E62] mb-2">Meningkatkan Self-Awareness</h3>
+                        <p class="text-xs lg:text-base text-gray-600 text-center leading-relaxed">
+                            Membantu Anda memahami cara berpikir, mengambil keputusan, dan merespons 
+                            situasi dalam kehidupan sehari-hari.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Manfaat 2 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl py-4 px-4 lg:p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-2 lg:mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <h3 class="text-base lg:text-lg text-center font-bold text-[#1E0E62] mb-2">Optimalisasi Kinerja</h3>
+                        <p class="text-xs lg:text-base text-gray-600 text-center leading-relaxed">
+                            Mengidentifikasi kekuatan dan area pengembangan untuk meningkatkan 
+                            produktivitas dan efektivitas kerja.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Manfaat 3 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl py-4 px-4 lg:p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-2 lg:mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col items-center justify-between">
+                        <h3 class="text-base lg:text-lg text-center font-bold text-[#1E0E62] mb-2">Kolaborasi Tim</h3>
+                        <p class="text-xs lg:text-base text-gray-600 text-center leading-relaxed">
+                            Memahami keragaman pola pikir dalam tim untuk menciptakan sinergi 
+                            dan komunikasi yang lebih efektif.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Manfaat 4 -->
+                <div class="flex flex-col items-center justify-start bg-white rounded-xl py-4 px-4 lg:p-6 card-hover shadow-lg">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-2 lg:mb-6">
+                        <svg class="w-8 h-8 text-[#003692]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-base lg:text-lg text-center font-bold text-[#1E0E62] mb-2">Pengembangan Karir</h3>
+                    <p class="text-xs lg:text-base text-gray-600 text-center leading-relaxed">
+                        Memberikan wawasan untuk menentukan jalur karir yang sesuai dengan 
+                        gaya berpikir dan preferensi Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian mulai pemetaan -->
+    <section id="mulai-pemetaan" class="bg-[#FEB902] min-h-full">
+        <div class="max-w-7xl mobile-container mx-10 py-8 lg:mx-24 lg:px-8 lg:py-15 md:mx-18 sm:mx-12">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Konten -->
+                <div class="fade-in order-2 lg:order-1">
+                    <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
+                        Sudah Siap Mengungkap Potensi Pola Pikir Anda?
+                    </h3>
+                    <p class="text-xs lg:text-base text-gray-600 mb-4 lg:mb-2 max-w-2xl">
+                        Jika Anda sudah membaca dan memahami manfaat dari pemetaan ini serta panduan pengerjaannya, silahkan klik tombol <b>Mulai Kerjakan</b> berikut.
+                    </p>
+        
+                    <div>
+                        <button class="h-10 lg:h-12 bg-[#003692] rounded-lg hover:bg-[#5375c6] transition-all duration-200 flex justify-center items-center btn-hover px-4 lg:px-8"> 
+                            <a href="javascript:void(0)" onclick="handleMulaiKerjakan()" class="text-sm md:text-base lg:text-base text-white font-semibold">Mulai Kerjakan</a> 
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Gambar ilustrasi -->
+                <div class="fade-in flex order-2 lg:order-1 w-full h-64 sm:h-80 lg:h-96">
+                    <img src="./img/pemetaan-img.svg" alt="Ilustrasi Pemetaan" class="w-full h-full object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#003692] text-white mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+            <!-- Konten utama footer -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Bagian statistik -->
+                <div class="text-center md:text-left fade-in">
+                    <h3 class="text-xl font-bold mb-6">Statistik</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Pengunjung Online:</span>
+                            <span class="font-semibold">2</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Tampilan Hari Ini:</span>
+                            <span class="font-semibold">175</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Pengunjung Hari Ini:</span>
+                            <span class="font-semibold">39</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Total Tampilan:</span>
+                            <span class="font-semibold">836,159</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Total Pengunjung:</span>
+                            <span class="font-semibold">189,445</span>
+                        </div>
+                        <div class="flex justify-between items-center hover:bg-blue-700/30 p-2 rounded transition-colors">
+                            <span class="text-gray-200">Total Halaman Dilihat:</span>
+                            <span class="font-semibold">7,278</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian link terkait -->
+                <div class="text-center md:text-left fade-in">
+                    <h3 class="text-xl font-bold mb-6">Link Terkait</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Kementerian Pendidikan dan Kebudayaan</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Direktorat Jenderal Guru dan Tenaga Kependidikan (Ditjen GTK)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>MenPANRB</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bagian sistem aplikasi -->
+                <div class="text-center md:text-left fade-in">
+                    <h3 class="text-xl font-bold mb-6">Sistem Aplikasi</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Naskan Dinas Elektronik</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Informasi Manajemen Diklat</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>Sistem Informasi Kepegawaian</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-200 hover:text-white transition-all duration-300 flex items-start hover:translate-x-2">
+                                <span class="mr-2">•</span>
+                                <span>LMS BBGTK Sumut</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Informasi organisasi -->
+            <div class="text-center border-t border-blue-400 pt-8 mb-8 fade-in">
+                <h2 class="text-2xl font-bold mb-4">BBGTK Provinsi Sumatera Utara</h2>
+                <div class="space-y-1 text-gray-200">
+                    <p>Jalan Kenanga Raya No. 64 Tanjungsari</p>
+                    <p>Medan 20132</p>
+                    <p>Telp. 061-8213254</p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center border-t border-blue-400 pt-6 fade-in">
+                <p class="text-gray-300 text-sm">
+                    Copyright © 2025 BBGTK Provinsi Sumatera Utara. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascript dari file "main.js" -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
