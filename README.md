@@ -15,7 +15,6 @@ project-root/
 ├── lib/            # Koneksi MongoDB dan helper
 ├── scripts/        # Seeder database
 ├── server.js       # Main Express server
-├── .env.example    # Template env config
 ├── tailwind.config.ts
 └── ...
 ```
@@ -45,30 +44,13 @@ project-root/
    npm install
    ```
 
-3. **Setup environment variables**
-
-   Buat file `.env` dari template:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   Lalu isi sesuai kebutuhan:
-
-   ```env
-   MONGODB_URI=mongodb://localhost:27017/bbgtk-auth
-   JWT_SECRET=your-secret-key-here
-   PORT=3000
-   NODE_ENV=development
-   ```
-
-4. **Seed database dengan dummy data**
+3. **Seed database dengan dummy data**
 
    ```bash
    npm run seed
    ```
 
-5. **Jalankan aplikasi**
+4. **Jalankan aplikasi**
 
    **Development mode:**
 
