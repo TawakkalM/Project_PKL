@@ -10,7 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/bbgtk-auth";
+  process.env.MONGODB_URI ||
+  "mongodb+srv://bbgtkadmin:bbgtksumut1507@cluster0.yxshgvp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Middleware
 app.use(express.json());
@@ -22,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Connect to MongoDB
 mongoose
-  .connect(MONGODB_URI)
+  .connect(process.env.MONGODB_URI, { dbName: "bbgtk-auth" })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
