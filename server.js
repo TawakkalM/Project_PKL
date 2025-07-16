@@ -9,9 +9,7 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  "mongodb+srv://bbgtkadmin:bbgtksumut1507@cluster0.yxshgvp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MONGODB_URI = process.env.MONGODB_URI || "masukkanDatabaseBBGTK";
 
 // Middleware
 app.use(express.json());
