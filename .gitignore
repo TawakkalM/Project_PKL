@@ -58,3 +58,6 @@ Build cache / artifacts
 dist/
 build/
 .tailwindcache/
+
+# Server
+server.js
