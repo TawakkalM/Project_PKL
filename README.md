@@ -13,7 +13,6 @@ project-root/
 ├── public/         # Halaman HTML dan asset statis
 ├── styles/         # Tailwind dan custom CSS
 ├── lib/            # Koneksi MongoDB dan helper
-├── scripts/        # Seeder database
 ├── server.js       # Main Express server
 ├── tailwind.config.ts
 └── ...
@@ -44,13 +43,7 @@ project-root/
    npm install
    ```
 
-3. **Seed database dengan dummy data**
-
-   ```bash
-   npm run seed
-   ```
-
-4. **Jalankan aplikasi**
+3. **Jalankan aplikasi**
 
    **Development mode:**
 
@@ -58,7 +51,7 @@ project-root/
    npm run dev
    ```
 
-   **Production mode:**
+4. **Production mode:**
 
    ```bash
    npm start
@@ -72,7 +65,6 @@ project-root/
 | -------------- | ---------------------------- |
 | `npm start`    | Jalankan server production   |
 | `npm run dev`  | Development mode + nodemon   |
-| `npm run seed` | Seeder dummy data ke MongoDB |
 
 ---
 
