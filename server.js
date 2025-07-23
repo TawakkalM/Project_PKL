@@ -336,7 +336,7 @@ app.post("/api/seed", async (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log("Available endpoints:");
   console.log("- GET / (Landing page)");
   console.log("- GET /login (Login page)");
