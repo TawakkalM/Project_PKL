@@ -15,6 +15,13 @@ const CONFIG = {
   TOTAL_QUESTIONS: 20,
 };
 
+// Pola perhitungan skor untuk setiap pertanyaan
+// Pertanyaan dengan pola Growth Mindset (skor rendah = growth mindset)
+const pertanyaanGrowthMindset = [0, 3, 6, 7, 10, 11, 13, 15, 16, 19]; // index 0-based
+
+// Pertanyaan dengan pola Fixed Mindset (skor tinggi = fixed mindset)
+const pertanyaanFixedMindset = [1, 2, 4, 5, 8, 9, 12, 14, 17, 18]; // index 0-based
+
 // Data kuis
 const dataKuis = [
   {
@@ -509,12 +516,30 @@ function navigasiKanan() {
   }
 }
 
+// Fungsi untuk menghitung skor per pertanyaan
+function hitungSkorPertanyaan(indeksPertanyaan, indexJawaban) {
+  // Cek apakah pertanyaan termasuk Growth Mindset pattern
+  if (pertanyaanGrowthMindset.includes(indeksPertanyaan)) {
+    // Untuk Growth Mindset: Sangat Setuju=0, Setuju=1, Tidak Setuju=2, Sangat Tidak Setuju=3
+    return indexJawaban;
+  }
+  // Untuk Fixed Mindset pattern
+  else if (pertanyaanFixedMindset.includes(indeksPertanyaan)) {
+    // Untuk Fixed Mindset: Sangat Setuju=3, Setuju=2, Tidak Setuju=1, Sangat Tidak Setuju=0
+    return 3 - indexJawaban;
+  }
+
+  // Default fallback (tidak seharusnya terjadi)
+  return 0;
+}
+
 // Hitung skor dan tampilkan hasil
 function hitungSkor() {
   let totalSkor = 0;
   for (let i = 0; i < CONFIG.TOTAL_QUESTIONS; i++) {
     if (jawabanPengguna[i] !== undefined) {
-      totalSkor += jawabanPengguna[i];
+      const skorPertanyaan = hitungSkorPertanyaan(i, jawabanPengguna[i]);
+      totalSkor += skorPertanyaan;
     }
   }
   return totalSkor;
